@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisha Issa | Remote Financial Operations Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 120px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.8px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        #about {
+            padding-top: 100px;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .metric-card {
+            background: #f9f9f9;
+            padding: 1.8rem;
+            border-radius: 6px;
+            border-left: 3px solid #2c2c2c;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            background: #f5f5f5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 500;
+        }
+
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            border: 1px solid #e8e8e8;
+            background: #f5f5f5;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            border-color: #2c2c2c;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .achievement-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid #2c2c2c;
+            padding-bottom: 1rem;
+        }
+
+        .achievement-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .achievement-label {
+            font-weight: 600;
+            color: #1a1a1a;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: #2c2c2c;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .skill-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Tools & Systems Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem 1.5rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+            min-height: 160px;
+        }
+
+        .tool-card:hover {
+            border-color: #2c2c2c;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .tool-logo {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        /* Project Proof Section */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .proof-column {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .proof-column:hover {
+            border-color: #2c2c2c;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .proof-column h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #2c2c2c;
+            padding-bottom: 0.8rem;
+        }
+
+        .proof-column p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .file-item {
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+            padding: 0.8rem;
+            background: #f9f9f9;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .file-item:hover {
+            background: #f5f5f5;
+        }
+
+        .file-badge {
+            display: inline-block;
+            background: #2c2c2c;
+            color: #ffffff;
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .file-item a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-weight: 500;
+            font-size: 0.9rem;
+            flex: 1;
+            transition: color 0.3s ease;
+        }
+
+        .file-item a:hover {
+            color: #555;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-intro {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2rem;
+            background: #2c2c2c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #2c2c2c;
+        }
+
+        .contact-btn:hover {
+            background: #ffffff;
+            color: #2c2c2c;
+        }
+
+        .contact-btn.secondary {
+            background: transparent;
+            color: #2c2c2c;
+        }
+
+        .contact-btn.secondary:hover {
+            background: #2c2c2c;
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .tool-card {
+                min-height: 140px;
+                padding: 1.5rem 1rem;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-buttons {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            #about {
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .about-content p {
+                font-size: 0.95rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .metric-card {
+                padding: 1.2rem;
+            }
+
+            .achievements-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .tool-card {
+                min-height: 120px;
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .tool-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .tool-name {
+                font-size: 0.8rem;
+            }
+
+            .proof-column {
+                padding: 1.5rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="brand">Aisha Issa</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#tools">Tools & Systems</a></li>
+                <li><a href="#proof">Project Proof</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h1 class="section-title">Remote Financial Operations Specialist</h1>
+            <h2 style="font-size: 1.4rem; color: #666; font-weight: 500; margin-bottom: 3rem;">Building Scalable Financial Systems & Reporting for Remote SaaS & Service Businesses</h2>
+
+            <div class="about-container">
+                <div class="about-content">
+                    <p>With a foundation as a General Ledger Accountant and a pivot into Finance Operations, I've spent the last 4+ years ensuring that the "engine room" of finance runs at peak performance. Having worked across both SaaS and service sectors, I understand the unique challenges of managing remote financial systems and multi-currency reconciliations.</p>
+
+                    <p>I specialize in designing financial systems for scaling SaaS and service-based companies. My approach combines operational excellence (99.5% accuracy across diverse clients) with systems thinking. I've architected 3-day month-end close processes, built IFRS 15 & GAAP compliant revenue recognition models, and designed billing-to-cash workflows that surface exceptions in real-time. My mission: automate the routine, flag anomalies early, and let humans focus on strategy.</p>
+
+                    <p>I'm driven by the challenge of taking messy data and turning it into a structured, scalable financial roadmap that supports long-term business growth.</p>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">45→32</div>
+                            <div class="metric-label">DSO Improvement (Days)</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">±15%→±3%</div>
+                            <div class="metric-label">Forecast Accuracy</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">73%</div>
+                            <div class="metric-label">Manual Hours Reduced</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">99.5%</div>
+                            <div class="metric-label">Data Integrity Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-image">
+                    <img src="Portfolio_pic.png" alt="Aisha Issa - Financial Operations Specialist">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Featured Achievements</h2>
+            <p class="section-subtitle">Measurable operational and systems impact across AR/AP transformation, month-end close architecture, and SaaS financial modeling.</p>
+
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3>AR / AP Transformation</h3>
+                    <p><span class="achievement-label">Problem:</span> AR was 1–2 weeks behind, DSO was 45 days, collections were informal.</p>
+                    <p><span class="achievement-label">Solution:</span> Designed daily AR aging dashboard + 5-touch collections protocol + 90-day cash forecast integration.</p>
+                    <p><span class="achievement-label">Results:</span> DSO 45→32 days, forecast accuracy ±15%→±3%, saved 22 hrs/month.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>3-Day Month-End Close</h3>
+                    <p><span class="achievement-label">Problem:</span> Close took 8–10 days with rework; limited variance visibility.</p>
+                    <p><span class="achievement-label">Solution:</span> Automated bank sync + deferred revenue schedules + exception-based reconciliation + real-time KPI refresh.</p>
+                    <p><span class="achievement-label">Results:</span> 3-day close, 73% time savings, zero rework cycles, audit-ready accuracy.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>SaaS KPI Mastery</h3>
+                    <p><span class="achievement-label">Fluent in:</span> MRR/ARR, churn, NRR, CAC/LTV, payback period, cohort analysis.</p>
+                    <p><span class="achievement-label">Built:</span> SaaS financial dashboard tracking 50-customer model with realistic expansion and churn.</p>
+                    <p><span class="achievement-label">Proof:</span> Excel model with monthly KPI tracking, cohort retention, variance analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <p class="section-subtitle">Strategic finance operations expertise covering systems design, reporting, compliance, and revenue architecture.</p>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Month-End Close & Reconciliation</h4>
+                    <p>3-day close architecture, zero-variance bank reconciliation, deferred revenue tracking, exception handling</p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>AR/AP Operations & Cash Flow</h4>
+                    <p>AR aging & collections management, DSO optimization, payables scheduling, cash forecasting</p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Financial Reporting & Analysis</h4>
+                    <p>P&L/Balance Sheet/Cash Flow preparation, variance analysis, KPI dashboards, management reporting</p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Systems Design & Automation</h4>
+                    <p>Process workflows, internal controls, exception thresholds, audit trails, operational scaling</p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Billing System Integration</h4>
+                    <p>Stripe/payment processor reconciliation, failed payment dunning, refund processing, cash application</p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>SaaS Revenue Recognition (IFRS 15 & GAAP)</h4>
+                    <p>Multi-element contracts, performance obligations, deferred revenue schedules, revenue cutoff accuracy</p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Financial Business Intelligence (BI)</h4>
+                    <p>Transforming raw data into actionable visual narratives via SQL and Power BI to identify revenue leaks and drive strategic spend.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Internal Controls & Audit Readiness</h4>
+                    <p>Designing SOX-compliant workflows and rigorous internal controls to ensure audit-ready trails and zero-finding year-end reviews.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Systems Section -->
+    <section id="tools">
+        <div class="container">
+            <h2 class="section-title">Tools & Systems</h2>
+            <p class="section-subtitle">Platforms I use across finance operations, reporting, workflow management, communication, and business support.</p>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="QuickBooks_online.jpg" alt="QuickBooks Online"></div>
+                    <div class="tool-name">QuickBooks Online</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Xero.jpg" alt="Xero"></div>
+                    <div class="tool-name">Xero</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="NetSuite.jpg" alt="NetSuite"></div>
+                    <div class="tool-name">NetSuite</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Dynamic_365.jpg" alt="Microsoft Dynamics 365"></div>
+                    <div class="tool-name">Microsoft Dynamics 365</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="SQL.jpg" alt="SQL"></div>
+                    <div class="tool-name">SQL</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Power_bi.jpg" alt="Power BI"></div>
+                    <div class="tool-name">Power BI</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Saleforce.jpg" alt="Salesforce"></div>
+                    <div class="tool-name">Salesforce</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Hubspot.jpg" alt="HubSpot"></div>
+                    <div class="tool-name">HubSpot</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="ZOHO.webp" alt="Zoho"></div>
+                    <div class="tool-name">Zoho</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Zoom.jpg" alt="Zoom"></div>
+                    <div class="tool-name">Zoom</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Google_meets.jpg" alt="Google Meet"></div>
+                    <div class="tool-name">Google Meet</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Teams.jpg" alt="Microsoft Teams"></div>
+                    <div class="tool-name">Microsoft Teams</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Slack.jpg" alt="Slack"></div>
+                    <div class="tool-name">Slack</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Notion.jpeg" alt="Notion"></div>
+                    <div class="tool-name">Notion</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Sheets.jpg" alt="Google Sheets"></div>
+                    <div class="tool-name">Google Sheets</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Excel.jpg" alt="Microsoft Excel"></div>
+                    <div class="tool-name">Microsoft Excel</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo"><img src="Microsoft.jpg" alt="Microsoft Office Suite"></div>
+                    <div class="tool-name">Microsoft Office Suite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Proof Section -->
+    <section id="proof">
+        <div class="container">
+            <h2 class="section-title">Portfolio Assets</h2>
+            <p class="section-subtitle">Proof of systems architecture, finance operations execution, and software proficiency.</p>
+
+            <div class="proof-grid">
+                <div class="proof-column">
+                    <h3>Systems Architecture Blueprint</h3>
+                    <p>Demonstrates how I approach SaaS financial infrastructure design, showing end-to-end system thinking from quote-to-cash workflows to IFRS 15 & GAAP compliant revenue recognition.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <span class="file-badge">PDF</span>
+                            <a href="SaaS_Finance_Ops_Architecture_Blueprint.pdf" download>SaaS Finance Ops Architecture Blueprint</a>
+                        </div>
+                        <div class="file-item">
+                            <span class="file-badge">EXCEL</span>
+                            <a href="SaaS_KPI_Portfolio.xlsx" download>SaaS KPI Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proof-column">
+                    <h3>Operational Excellence</h3>
+                    <p>Proof of heavy-lifting financial operations work with precision. Demonstrates end-to-end finance processes, reconciliation excellence, and month-end close mastery.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <span class="file-badge">PDF</span>
+                            <a href="AP_AR_Operations.pdf" download>AP/AR Operations</a>
+                        </div>
+                        <div class="file-item">
+                            <span class="file-badge">PDF</span>
+                            <a href="Bank_Reconciliation_Cleanup.pdf" download>Bank Reconciliation Cleanup</a>
+                        </div>
+                        <div class="file-item">
+                            <span class="file-badge">PDF</span>
+                            <a href="Month_End_Close_Process_Variance_Review.pdf" download>Month-End Close & Variance Review</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proof-column">
+                    <h3>Software Proficiency & Certifications</h3>
+                    <p>Certified expertise in industry-standard accounting platforms. Demonstrates hands-on proficiency with QuickBooks Online and Xero through certifications and real-world implementations.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <span class="file-badge">CERT</span>
+                            <a href="QuickBooksOnlineCertification_-_aisha_Issa.pdf" download>QuickBooks Online Certification</a>
+                        </div>
+                        <div class="file-item">
+                            <span class="file-badge">CERT</span>
+                            <a href="Xero_Certificate__1_.pdf" download>Xero Certificate</a>
+                        </div>
+                        <div class="file-item">
+                            <span class="file-badge">PDF</span>
+                            <a href="QuickBooks_Online_Month_End_Close.pdf" download>QuickBooks Month-End Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p class="contact-intro">I'm actively looking to join remote-first, high-growth SaaS and service-based companies as a Finance Operations Specialist. If you're building scalable financial systems or need expertise in remote operations, revenue architecture, or finance automation, I'd love to talk.</p>
+
+            <div class="contact-buttons">
+                <a href="mailto:issaaisha529@gmail.com" class="contact-btn">Email</a>
+                <a href="https://www.linkedin.com/in/aishamacann/" target="_blank" class="contact-btn secondary">LinkedIn</a>
+                <a href="https://aslyisha.github.io/Aisha-Issa-Portfolio/" target="_blank" class="contact-btn secondary">GitHub Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
